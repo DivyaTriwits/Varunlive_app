@@ -1,0 +1,88 @@
+For getting cource dropdown in the updateprofile page 
+---------------------------------------------------------
+
+student_profile.php fle has sent view/student.student_profile.php
+
+in student_controller.php
+--------------------------
+public function profilePage()
+{
+   // if (!$this->session->userdata('student_username')) redirect('student-login');
+
+    $this->load->view('student/header');
+    $data['getRegistrationsData'] = $this->Student_model->getRegistrationData();
+    $data['getCourse'] = $this->Student_model->getCourse();
+    $data['getAcademicDetails'] = $this->Student_model->getAcademicDetails();
+    $data['states'] = $this->Student_model->getStateList();
+    
+    $data['getCourseParticulars'] = $this->Student_model->getCourseParticulars();
+    $state = 'hi';
+    $stateId = 'hi';
+    if ($data['getAcademicDetails'] != '' && $data['getAcademicDetails']->student_studying_state != '') {
+        $state = $data['getAcademicDetails']->student_studying_state;
+    }
+    $stateDetails = $this->Student_model->getStateIdByStateName($state);
+    if ($stateDetails != '' && $stateDetails->id != '') {
+        $stateId = $stateDetails->id;
+    }
+    $data['city'] = $this->Student_model->getCitiesList($stateId);
+    $data['allcity'] = $this->Student_model->getAllList();
+    $data['getFamilyDetails'] = $this->Student_model->getFamilyDetails();
+    $this->load->view('student/student_profile', $data);
+    $this->load->view('student/footer');
+}
+
+in student_model.php
+----------------------
+
+/* ----------for getting all the cources on 24 July 2023 by varun-------------*/ 
+ public function getCourseParticulars()
+{
+    $result=$this->db->query("select * from  course_particulars ");
+  return $result;
+}
+
+
+
+For the support side adding the expired scholarship list 
+-----------------------------------------------------------
+scholarship.php file has sent view/support/scholarship/scholarship.php
+
+routes.php
+----------
+$route['expired-scholarship-list']=$route['scholarship_controller'].'/viewexpiredScholarship';//added on 24 july bt varun
+
+
+in scholarship_controller.php
+-------------------------------
+/*-------------for getting the expired scholarship list on 24 July By varun---------------------*/
+    public function viewexpiredScholarship() {
+        $this->load->view('support/header');
+        $data['getscholarships'] = $this->Scholarship_model->view_expired_scholarship();
+        $this->load->view('support/scholarship/view_scholarship', $data);
+        $this->load->view('support/footer');
+    }
+/*-------------for getting the expired scholarship list on 24 July By varun---------------------*/
+
+in scholarship_model.php
+-------------------------
+/*-------------for getting the expired scholarship list on 24 July By varun---------------------*/
+	public function view_expired_scholarship()
+	{
+      $query=$this->db->where('application_end_date <', date('Y-m-d'))
+                    ->Where('web_status',1)
+                    ->order_by('application_end_date','DESC')
+                  ->get('scholarships')->result();
+      return $query; 
+	}
+/*-------------for getting the expired scholarship list on 24 July By varun---------------------*/
+
+update view_scholarship()
+-------------------------
+
+public function view_scholarship()
+{
+//FOR GETTINF THE NOT EXPIRED SCHOLARSHIPS
+		$result=$this->db->where('application_end_date >=', date('Y-m-d'))->Where('web_status',1)->order_by('scholarship_added_date','DESC')->get('scholarships')->result();
+      return $result;
+}
