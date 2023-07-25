@@ -210,14 +210,13 @@
 											<p class="mg-b-10">Semester <span class="tx-danger">*</span> </p>
 											<select class="form-control select2" name="current_semester" id="current_semester" required>
 												<option selected="" disabled="">Select</option>
-												<option  value="1" >1</option>
-												<option  value="2" >2</option>
-												<option  value="3" >3</option>
-												<option  value="4" >4</option>
-												<option  value="5" >5</option>
-												<option  value="6" >6</option>
-												<option  value="7" >7</option>
-												<option  value="8" >8</option>
+												<?php if($getSemester->num_rows()>0){ foreach($getSemester->result() as $row){?>
+													<option value="<?php echo $row->semester;?>"
+														<?php if($getAcademicDetails!=''){ echo ($getAcademicDetails->current_semester==$row->semester) ? "selected":" "; } ?> >
+														<?php echo $row->semester;?>
+													</option>
+
+												<?php } } ?>
 									</select>
 									</div>
 								</div>
@@ -268,18 +267,13 @@
 												<p class="mg-b-10">Family Income<span class="tx-danger">*</span></p>
 											<select class="form-control select2" name="family_annual_income" id="family_annual_income" required>
 											<option selected="" disabled="">Select</option>
-										
+											<?php if($getIncome->num_rows()>0){ foreach($getIncome->result() as $row){?>
+													<option value="<?php echo $row->income;?>"
+														<?php if($getAcademicDetails!=''){ echo ($getAcademicDetails->family_annual_income==$row->income) ? "selected":" "; } ?> >
+														<?php echo $row->income;?>
+													</option>
 
-												<option  value="0-1 Lakh" >0-1 Lakh</option>
-												<option  value="1-2 Lakh" >1-2 Lakh</option>
-												<option  value="2-3 Lakh" >2-3 Lakh</option>
-												<option  value="3-5 Lakh" >3-5 Lakh</option>
-												<option  value="3-5 Lakh" >5-8 Lakh</option>
-												<option  value="3-5 Lakh" >8-11 Lakh</option>
-												<option  value="3-5 Lakh" >11+ Lakh</option>
-
-
-								
+												<?php } } ?>
 									</select>
 										</div>
 
