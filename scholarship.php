@@ -24,7 +24,8 @@
 
 		<!-- Row -->
 		<div class="row" style="text-align: center;">
-
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),3);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url('live-scholarships')?>">
 					<div class="card plan-card">
@@ -37,6 +38,7 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
 			<!-- <img src="<?php echo base_url()?>assets/img/icon/scholarship.png"> -->
 			<!-- <div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url('scholarship-form')?>">
@@ -51,6 +53,8 @@
 					</div>
 				</a>
 			</div> -->
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),4);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url('scholarship-list')?>">
 				<div class="card plan-card">
@@ -65,6 +69,9 @@
 			</a>
 
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),5);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url('expired-scholarship-list')?>">
 				<div class="card plan-card">
@@ -79,6 +86,7 @@
 			</a>
 
 			</div>
+			<?php }?>
 			<!-- <div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>institution-scholarship">
 				<div class="card plan-card">
@@ -93,6 +101,8 @@
 			</a>
 
 			</div> -->
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),6);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>view-institution-scholarship-list">
@@ -108,6 +118,9 @@
 			</a>
 
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),7);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>scholarship-form">
 				<div class="card plan-card">
@@ -126,6 +139,7 @@
 			</a>
 
 			</div>
+			<?php }?>
 		<!-- 	<div class="col-lg-4 col-md-6">
 				<div class="card plan-card">
 					<div class="card-block">
