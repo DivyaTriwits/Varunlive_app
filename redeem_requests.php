@@ -24,7 +24,8 @@
 
 		<!-- Row -->
 		<div class="row mt-5" style="text-align: center;">
-
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),15);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-4">
 				<a href="<?php echo base_url('renew-requests')?>">
 					<div class="card plan-card">
@@ -38,6 +39,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),16);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-4">
 				<a href="<?php echo base_url('bank-requests')?>">
 					<div class="card plan-card">
@@ -51,6 +55,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),17);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-4">
 				<a href="<?php echo base_url('registered-account-request')?>">
 					<div class="card plan-card">
@@ -64,6 +71,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),18);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-4">
 				<a href="<?php echo base_url('influencer-request')?>">
 					<div class="card plan-card">
@@ -77,6 +87,7 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
 		</div>
 
 	</div>

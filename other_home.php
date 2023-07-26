@@ -22,7 +22,8 @@
 
 
 		<div class="row text-center">
-			
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),8);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>religion">
 					<div class="card plan-card">
@@ -37,6 +38,9 @@
 				</a>
 
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),9);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>category-form">
 					<div class="card plan-card">
@@ -50,6 +54,9 @@
 				</a>
 
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),10);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>qualification">
 					<div class="card plan-card">
@@ -64,6 +71,9 @@
 				</a>
 
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),11);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>course">
 					<div class="card plan-card">
@@ -77,6 +87,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),12);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>disability">
 					<div class="card plan-card">
@@ -90,6 +103,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),13);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>activity-type">
@@ -104,6 +120,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),14);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 
 
 			<div class="col-lg-4 col-md-6">
@@ -119,6 +138,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php 
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>Support_controller/exportStudentsList">
 					<div class="card plan-card">
@@ -132,6 +154,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php 
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>Support_controller/exportStudentsRegisteredList">
@@ -146,6 +171,9 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
+			<?php 
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			
 			<div class="col-lg-4 col-md-6">
 				<a href="<?php echo base_url()?>Support_controller/exportStudentsRegisteredList?filter=active">
@@ -160,6 +188,7 @@
 					</div>
 				</a>
 			</div>
+			<?php }?>
 			<!-- End Row -->
 		</div>
 					

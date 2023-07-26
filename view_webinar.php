@@ -24,7 +24,8 @@
 
 		<!-- Row -->
 		<div class="row mt-5" style="text-align: center;">
-
+			<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),1);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
 			<div class="col-lg-6 col-md-4">
 				<a href="<?php echo base_url('webinar-registrations')?>">
 					<div class="card plan-card">
@@ -39,6 +40,10 @@
 				</a>
 
 			</div>
+				<?php }?>
+				<?php $access=$this->Support_model->getsubaccess($this->session->userdata('supportid'),2);
+		    if($this->session->userdata('role')!='' && ($this->session->userdata('role')=="Admin" || $access==1)){?>
+
 			<div class="col-lg-6 col-md-4">
 				<a href="<?php echo base_url('webinar-registered-student-list')?>">
 					<div class="card plan-card">
@@ -52,6 +57,7 @@
 							</div>
 						</a>
 					</div>
+					<?php }?>
 				</div>
 				
 			</div>
