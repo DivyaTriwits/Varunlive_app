@@ -7,9 +7,7 @@
   
     <style>
       /* Add this style to hide the tooltips */
-.goog-tooltip {
-    display: none !important;
-}
+
 
 .floating-logo {
     width: 50px;
@@ -21,18 +19,24 @@
     border-radius: 50%;
     cursor: pointer;
     z-index: 1000;
+    overflow: hidden;
     /* Add your logo icon styles here */
 }
+.floating-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
 
 /* Rest of your CSS */
 
 .translate-widget {
     width: 50%;
     height: 0;
+    border-radius: 30px;
     background-color: #ffffff;
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: 13%;
+    right: 3%;
     z-index: 999;
     overflow: hidden;
     transition: height 0.3s;
@@ -41,11 +45,12 @@
 }
 
 .translate-widget.show {
-    height: 100px; /* Adjust the height as needed */
+    height: 50px; /* Adjust the height as needed */
 }
 
 
 #google_translate_element {
+    margin-top: 2%;
     height: 21px !important;
     overflow: hidden;
 }
@@ -89,12 +94,10 @@
 <body>
     <div class="floating-logo" id="floatingLogo">
         <!-- Add your logo image or icon here -->
-        <img src="https://www.triwits-workspace.p4kap4cfc5vhzrfud8lu.co.in/attach_files/31-311851_language-icon-svg-hd-png-download.png">
+        <img src="https://www.triwits-workspace.p4kap4cfc5vhzrfud8lu.co.in/attach_files/l1.png">
     </div>
     <div class="translate-widget" id="translateWidget">
         <center>
-            
-        
         <div id="google_translate_element"></div>
         </center>
     </div>
@@ -116,3 +119,4 @@ function googleTranslateElementInit() {
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
+<!-- src="<?php echo base_url()?>assets/img/brand/2.webp" -->
