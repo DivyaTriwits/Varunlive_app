@@ -14,8 +14,9 @@
     height: 50px;
     background-color: #6f1d1b;
     position: fixed;
-    bottom: 80px;
-    right: 20px;
+    bottom: 75%;
+    /*right: 20px;*/
+    left: 20px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 1000;
@@ -30,13 +31,15 @@
 /* Rest of your CSS */
 
 .translate-widget {
-    width: 50%;
+    width: 25%;
     height: 0;
     border-radius: 30px;
     background-color: #ffffff;
     position: fixed;
-    bottom: 13%;
-    right: 3%;
+    /*bottom: 13%;*/
+    /*right: 3%;*/
+    top: 17.5%;
+    left : 3%;
     z-index: 999;
     overflow: hidden;
     transition: height 0.3s;
@@ -48,10 +51,19 @@
     height: 50px; /* Adjust the height as needed */
 }
 
+@media (max-width: 768px) {
+.translate-widget {
+/* Mobile styles for translate-widget... */
+left : 14%;
+width: 50%;
+/* Add more mobile-specific styles here */
+}
+}
+
 
 #google_translate_element {
     margin-top: 2%;
-    height: 21px !important;
+    height: 18px !important;
     overflow: hidden;
 }
 .translated-ltr 
@@ -81,12 +93,41 @@
                             }
                           .VIpgJd-ZVi9od-ORHb-OEVmcd
                                {
-                                  display: none;
-                               }
+                                   z-index: 9724790009779!important;
+                               top:0;
+                               left:unset;
+                               right:-15px;
+                               display:none!important;
+                               border-radius:50%;
+                               border:2px solid gold;
+                              }
+                              
+                              /*.VIpgJd-ZVi9od-aZ2wEe-OiiCO{
+                                width:40px;
+                                height:40px;
+                              }*/
+                        /*  #google_translate_element select{
+                         background:#f6edfd;
+                         color:#383ffa;
+                         border: none;
+                         border-radius:3px;
+                         padding:6px 8px
+                         }
+                           */    
+                           }
                           div.goog-te-gadget 
                               {
                                   color: transparent !important;
                               }
+                           #goog-gt-tt, .goog-te-balloon-frame
+                            {
+                                display: none !important;
+                            }
+                            .goog-text-highlight 
+                                { 
+                                    background: none !important;
+                                    box-shadow: none !important;
+                                }
 
 
     </style>
@@ -94,7 +135,7 @@
 <body>
     <div class="floating-logo" id="floatingLogo">
         <!-- Add your logo image or icon here -->
-        <img src="https://www.triwits-workspace.p4kap4cfc5vhzrfud8lu.co.in/attach_files/l1.png">
+        <img src="<?php echo base_url()?>assets/img/brand/Lng.png" >
     </div>
     <div class="translate-widget" id="translateWidget">
         <center>
@@ -119,4 +160,4 @@ function googleTranslateElementInit() {
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
-<!-- src="<?php echo base_url()?>assets/img/brand/2.webp" -->
+
