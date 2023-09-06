@@ -1,0 +1,46 @@
+New_controller:
+--------------
+
+
+public function termsandcondition()
+    {
+        $this->load->view('new/new_header');
+        $this->load->view('new/termsandcondition');
+         $this->load->view('new/footer');
+    }
+    public function contactuspage()
+    {
+        $this->load->view('new/new_header');
+        $this->load->view('new/contactus');
+         $this->load->view('new/footer');
+    }
+    public function refundpolicy()
+    {
+        $this->load->view('new/new_header');
+        $this->load->view('new/refundpolicy');
+         $this->load->view('new/footer');
+    }
+
+public function payment(){
+        $this->load->view('new/new_header');
+        $this->load->view('new/payment_add');
+        $this->load->view('new/footer');
+    }
+
+------------
+in route.php
+-------------
+
+$route['payment'] = $route['default_controller'].'/payment';
+$route['termsandcondition'] = $route['default_controller'].'/termsandcondition';
+$route['contactus'] = $route['default_controller'].'/contactuspage';
+$route['refundpolicy'] = $route['default_controller'].'/refundpolicy';
+
+
+
+in footer.php
+--------------
+
+<li><a href="<?=base_url('termsandcondition');?>">Terms & Conditions</a></li>  
+                                 <li><a href="<?=base_url('contactus');?>">Contact Us</a></li> 
+                                 <li><a href="<?=base_url('refundpolicy');?>">Refund & Cancellation Policy</a></li>  
